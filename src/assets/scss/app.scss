@@ -1,3 +1,15 @@
+$text-white: #fff;
+
+$bg-body: #e6ecf1;
+$bg-white: #fff;
+$bg-progress: rgb(180, 180, 180);
+$bg-bar: #63b9ff;
+$bg-question: #00ca8c;
+$bg-title: #12cbc4;
+$bg-reset: #ff6372;
+
+$border-answer: #8e959f;
+
 * {
   box-sizing: border-box;
 }
@@ -5,7 +17,7 @@ body {
   font-size: 20px;
   font-family: sans-serif;
   padding-top: 20px;
-  background: #e6ecf1;
+  background: $bg-body;
 }
 
 .ctr {
@@ -25,8 +37,8 @@ body {
   font-size: 32px;
   font-weight: bold;
   text-align: center;
-  background-color: #00ca8c;
-  color: #fff;
+  background-color: $bg-question;
+  color: $text-white;
   box-sizing: border-box;
 }
 .single-question {
@@ -37,8 +49,9 @@ body {
   padding: 20px;
   font-size: 18px;
   width: 100%;
-  background-color: #fff;
+  background-color: $bg-white;
   transition: 0.2s linear all;
+  // margin-top: 15px;
   
   span {
     display: inline-block;
@@ -47,9 +60,12 @@ body {
     font-style: italic;
   }
 
-  &:not(:last-child){
+  &:not(:last-child) {
     // background: red;
-    border-bottom: 1px solid #8e959f;
+    border-bottom: 1px solid $border-answer;
+  }
+  &:last-child {
+    border-radius: 0px 0px 6px 6px;
   }
   
   &:not(.is-answered) {
@@ -57,21 +73,21 @@ body {
   }
 
   &:not(.is-answered):hover {
-    background-color: #2fa1ff;
+    background-color: #55b2ff;
     border-color: #2fa1ff;
-    color: #fff;
+    color: $text-white;
   }
 }
 
 .progress {
   height: 50px;
   margin-top: 10px;
-  background-color: #bbb;
+  background-color: $bg-progress;
   position: relative;
 }
 .bar {
   height: 50px;
-  background-color: #63b9ff;
+  background-color: $bg-bar;
   transition: all 0.3s linear;
 }
 .status {
@@ -79,8 +95,12 @@ body {
   top: 15px;
   left: 0;
   text-align: center;
-  color: #fff;
+  color: $text-white;
   width: 100%;
+}
+
+.progress, .bar, .status {
+  border-radius: 6px 6px 0px 0px !important;
 }
 
 .title {
@@ -89,18 +109,20 @@ body {
   font-size: 32px;
   font-weight: bold;
   text-align: center;
-  background-color: #12cbc4;
-  color: #fff;
+  background-color: $bg-title;
+  color: $text-white;
   box-sizing: border-box;
+  border-radius: 6px 6px 0px 0px;
 }
 .desc {
-  border: 1px solid #8e959f;
+  border: 1px solid $border-answer;
   padding: 20px;
   font-size: 18px;
   width: 100%;
-  background-color: #fff;
+  background-color: $text-white;
   transition: 0.4s linear all;
   text-align: center;
+  border-radius: 0px 0px 6px 6px;
 }
 
 .fade {
@@ -122,15 +144,16 @@ body {
 }
 
 .reset-btn{
-  background-color: #ff6372;
+  background-color: $bg-reset;
   border: 0;
+  border-radius: 6px;
   font-size: 22px;
-  color: #fff;
+  color: $text-white;
   padding: 10px 25px;
   margin: 10px auto;
   display: block;
   
-  &:active,&:focus,&:hover {
+  &:active, &:focus, &:hover {
     border: 0;
     outline: 0;
   }
