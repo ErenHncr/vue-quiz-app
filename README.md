@@ -1,4 +1,7 @@
-# quiz-app
+# Quiz App
+> Made with **VueJS**
+
+This is an simple one page Vue Quiz Application. You can integrate it anywhere in your VueJS application. It has a simple time with loading animations.
 
 ## Project setup
 ```
@@ -20,5 +23,6 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Preview
+
+In final product, preview will be added.
