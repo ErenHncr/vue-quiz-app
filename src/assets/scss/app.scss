@@ -1,14 +1,16 @@
 $text-white: #fff;
+$text-black: #1f1f1f;
 
-$bg-body: #e6ecf1;
+$bg-body: #9a85e8;
 $bg-white: #fff;
 $bg-progress: rgb(180, 180, 180);
 $bg-bar: #63b9ff;
-$bg-question: #00ca8c;
+$bg-question: #fff;
 $bg-title: #12cbc4;
 $bg-reset: #ff6372;
 
 $border-answer: #8e959f;
+$border-radius: 4px;
 
 * {
   box-sizing: border-box;
@@ -27,6 +29,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   position: relative;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .questions-ctr {
@@ -38,21 +41,32 @@ body {
   width: 100%;
   padding: 20px;
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 500;
   text-align: center;
   background-color: $bg-question;
-  color: $text-white;
+  color: $text-black;
   box-sizing: border-box;
+  border-radius: 0px 0px $border-radius $border-radius;
 }
 
 .single-question {
   position: relative;
   width: 100%;
+  display: grid;
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 15px;
 }
 
 .answer {
+  border-radius: 4px;
   padding: 20px;
   font-size: 18px;
+  font-weight: 600;
   width: 100%;
   background-color: $bg-white;
   transition: 0.2s linear all;
@@ -65,23 +79,20 @@ body {
     font-style: italic;
   }
 
-  &:not(:last-child) {
-    // background: red;
-    border-bottom: 1px solid $border-answer;
-  }
-
-  &:last-child {
-    border-radius: 0px 0px 6px 6px;
-  }
-
   &:not(.is-answered) {
     cursor: pointer;
   }
 
   &:not(.is-answered):hover {
-    background-color: #55b2ff;
-    border-color: #2fa1ff;
-    color: $text-white;
+    // border: 1px solid #55b2ff;
+    // border-color: #2fa1ff;
+    box-shadow: 0 0 0 .3rem hsl(253, 60%, 56%);
+  }
+
+  &.is-answered {
+    // border: 1px solid #55b2ff;
+    // border-color: #2fa1ff;
+    box-shadow: 0 0 0 .3rem hsl(253, 68%, 54%);
   }
 }
 
@@ -110,7 +121,7 @@ body {
 .progress,
 .bar,
 .status {
-  border-radius: 6px 6px 0px 0px !important;
+  border-radius: $border-radius $border-radius 0px 0px !important;
 }
 
 .title {
@@ -122,7 +133,7 @@ body {
   background-color: $bg-title;
   color: $text-white;
   box-sizing: border-box;
-  border-radius: 6px 6px 0px 0px;
+  border-radius: $border-radius $border-radius 0px 0px;
 }
 
 .desc {
@@ -133,7 +144,7 @@ body {
   background-color: $text-white;
   transition: 0.4s linear all;
   text-align: center;
-  border-radius: 0px 0px 6px 6px;
+  border-radius: 0px 0px $border-radius $border-radius;
 }
 
 .fade {
@@ -159,7 +170,7 @@ body {
 .reset-btn {
   background-color: $bg-reset;
   border: 0;
-  border-radius: 6px;
+  border-radius: $border-radius;
   font-size: 22px;
   color: $text-white;
   padding: 10px 25px;
