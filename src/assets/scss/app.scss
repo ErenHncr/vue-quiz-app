@@ -25,11 +25,18 @@ body {
 
 .ctr {
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 800px;
   width: 100%;
   box-sizing: border-box;
   position: relative;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  display: flex;
+  place-items: center;
+}
+
+.result {
+  margin: 0 auto;
+  max-width: 550px;
+  width: 100%;
 }
 
 .questions-ctr {
@@ -47,6 +54,21 @@ body {
   color: $text-black;
   box-sizing: border-box;
   border-radius: 0px 0px $border-radius $border-radius;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+  &-number {
+    display: flex;
+    align-items: flex-start;
+
+    & span:first-child {
+      font-weight: 600;
+    }
+
+    & span:last-child {
+      text-align: left;
+      margin-left: 10px;
+    }
+  }
 }
 
 .single-question {
@@ -70,6 +92,7 @@ body {
   width: 100%;
   background-color: $bg-white;
   transition: 0.2s linear all;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   // margin-top: 15px;
 
   span {
@@ -101,21 +124,21 @@ body {
   margin-top: 10px;
   background-color: $bg-progress;
   position: relative;
-}
 
-.bar {
-  height: 50px;
-  background-color: $bg-bar;
-  transition: all 0.3s linear;
-}
+  & .bar {
+    height: 50px;
+    background-color: $bg-bar;
+    transition: all 0.3s linear;
+  }
 
-.status {
-  position: absolute;
-  top: 15px;
-  left: 0;
-  text-align: center;
-  color: $text-white;
-  width: 100%;
+  & .status {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    text-align: center;
+    color: $text-white;
+    width: 100%;
+  }
 }
 
 .progress,
@@ -167,8 +190,8 @@ body {
   width: 100%;
 }
 
-.reset-btn {
-  background-color: $bg-reset;
+.btn {
+  background: transparent;
   border: 0;
   border-radius: $border-radius;
   font-size: 22px;
@@ -183,4 +206,69 @@ body {
     border: 0;
     outline: 0;
   }
+}
+
+.reset-btn {
+  background-color: $bg-reset;
+}
+
+.prev-btn {
+  margin-right: 20px;
+  padding: 16px 10px 16px 8px;
+}
+
+.next-btn {
+  margin-left: 20px;
+  padding: 16px 8px 16px 10px;
+}
+
+.prev-btn,
+.next-btn {
+  display: flex;
+  background-color: hsl(253, 68%, 55%);
+
+  &:hover {
+    background-color: hsl(253, 68%, 57.5%);
+  }
+
+  &:active {
+    background-color: hsl(253, 68%, 60%);
+  }
+}
+
+.timer {
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: $bg-progress;
+  position: relative;
+
+  & .bar {
+    height: 50px;
+    background-color: $bg-reset;
+    transition: all 0.3s linear;
+  }
+
+  & .status {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    text-align: center;
+    color: $text-white;
+    width: 100%;
+    font-weight: bold;
+  }
+}
+
+.loading {
+  width: 100%;
+  height: 80vh;
+  display: grid;
+  place-items: center;
+  font-size: 35px;
+  color: $text-white;
+}
+
+.hide {
+  visibility: hidden;
 }
