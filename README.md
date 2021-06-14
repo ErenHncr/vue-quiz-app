@@ -31,9 +31,11 @@ api endpoint for questions: https://opentdb.com/api.php?amount=10&category=9&dif
 
 - [ x ] Sorular 4 seçenekten oluşup her satırda 2 soru gösterilecek.
 - [ x ] Soru seçme eklendi
-- [ ] Next before buttonları koyulacak.
-- [ ] Soruların cevapları sonradan değiştirilebilecek.
-- [ ] Daire şeklinde soru sayılarından sorular arasında geçiş yapılacak.
-- [ ] Timer
+- [ x ] Next before buttonları koyulacak.
+- [ x ] Soruların cevapları sonradan değiştirilebilecek.
+- [ x ] Timer
+- [  ] Süreye göre renklendirme
+- [  ] Submit butonu
+- [  ] Doğru/yanlış sonuç gösterme
 
 potential bg: #9a85e8
