@@ -17,15 +17,15 @@ export default {
   name: 'Timer',
   props: {
     progress: Number,
+    testFinished: Number,
+    fiveMinutesInMiliseconds: Number,
   },
   emits: ['update-progress'],
   data(){
     return {
-      fiveMinutesInMiliseconds: 5 * 60 * 1000,
       interval: null,
       minutes: '05',
       seconds: '00',
-      testFinished: 0,
     }
   },
   methods: {    
@@ -49,8 +49,6 @@ export default {
     }
   },
   mounted() {
-    // 5 minute added
-    this.testFinished = new Date().getTime() + (this.fiveMinutesInMiliseconds) + 1000;
     this.interval = window.setInterval(() => {
       this.updateProgress();
     }, 1000);
