@@ -1,12 +1,33 @@
 <template>
+  <Modal 
+    v-show="showModal" 
+    @close="showModal = false"
+    @on-success="isTestSubmitted = true, showModal = false"
+  >    
+    <template v-slot:header>
+      <i class="fas fa-exclamation-triangle warning-icon"></i>
+      <p>Are you sure?</p>
+    </template>
+    <template v-slot:body>
+      <p>Do you really want to submit? This process cannot be undone.</p>
+    </template>
+  </Modal>
   <div
     v-if="loading"
     class="loading"
   >
     <i class="fas fa-spinner fa-spin"></i>
   </div>
+  <div 
+    v-else-if="testFinished === null"
+    :class="{welcome: true, in: !isWelcomeOut, out: isWelcomeOut}"
+  >  
+      <Welcome
+        @start-quiz="startQuiz()"
+      />
+  </div>
   <div v-else>
-    <div v-if="progress !== 0 || results.length != 0" class="ctr">
+    <div v-if="!isTestFinished" class="ctr">
       <button      
         type="button"
         :class="{btn: true, 'prev-btn': true, hide: currentQuestion === 0}"
@@ -16,8 +37,7 @@
       </button>
       <transition name="fade" mode="out-in">
         <div 
-          class="questions-ctr"
-          v-if="questionsAnswered < questions.length"
+          class="questions-ctr"          
         >
           <Progress
             :questions="questions"
@@ -25,6 +45,8 @@
           />
           <Timer 
             :progress="progress" 
+            :testFinished="testFinished"
+            :fiveMinutesInMiliseconds="fiveMinutesInMiliseconds"
             @update-progress="updateProgress"
           />
           <Questions        
@@ -33,6 +55,13 @@
             :selectedAnswers="selectedAnswers"
             @question-answered="setQuestionAnswered"
           />
+          <button            
+            type="button"
+            class="btn submit-btn"
+            @click.prevent="showModal = true"
+          >
+            Submit
+          </button>            
         </div> 
       </transition>    
       <button
@@ -44,7 +73,7 @@
         <i class="fas fa-chevron-right"></i>
       </button>
     </div>
-    <div class="result" v-else>
+    <div v-else class="result" >
       <Result :results="results" :totalCorrect="totalCorrect" />
       <button
         type="button"
@@ -62,6 +91,8 @@ import Progress from './components/Progress.vue'
 import Questions from './components/Questions.vue'
 import Result from './components/Result.vue'
 import Timer from './components/Timer.vue'
+import Welcome from './components/Welcome.vue'
+import Modal from './components/Modal.vue'
 export default {
   name: 'App',
   components: {
@@ -69,11 +100,20 @@ export default {
     Result,
     Progress,
     Timer,
+    Welcome,
+    Modal,
   },
   data () {
     return {
+      showModal: false,
+      isWelcomeOut: false,
+      // timer variables
       loading: true,
       progress: 100,
+      testFinished: null,
+      isTestSubmitted: false,
+      fiveMinutesInMiliseconds: 5 * 60 * 1000,
+      // timer variables
       currentQuestion: 0,
       selectedAnswers: {},
       questions: [],
@@ -94,6 +134,13 @@ export default {
     }
   },
   methods: {
+    startQuiz() {
+      this.isWelcomeOut = true;
+      // 5 minute added
+      setTimeout(() => {
+        this.testFinished = new Date().getTime() + (this.fiveMinutesInMiliseconds) + 1000;
+      }, 600);      
+    },
     updateProgress(value) {
       this.progress = value;
     },
@@ -115,6 +162,10 @@ export default {
     },
     reset() {
       this.fetchNewQuestions();
+      this.progress = 100;
+      this.isWelcomeOut = false;
+      this.testFinished = null;
+      this.isTestSubmitted = false;
     },
     async fetchNewQuestions() { 
       const req = await fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=easy');
@@ -150,6 +201,9 @@ export default {
     },
   },
   computed: {
+    isTestFinished() {
+      return this.progress === 0 || this.isTestSubmitted;
+    },
     totalCorrect() {
       let correctCount = 0;
       const obj = this.selectedAnswers;
