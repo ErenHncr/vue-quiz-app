@@ -1,7 +1,12 @@
 <template>
   <div class="timer">
     <div 
-      class="bar" 
+      :class="{
+        bar: true,
+        green: progress >= 65,
+        orange: progress > 35 && progress < 65,
+        red: progress <= 35 
+      }" 
       :style="{ width: `${progress}%`}"></div>
     <div class="status">
       <span v-if="progress > 0">

@@ -9,6 +9,10 @@ $bg-question: #fff;
 $bg-title: #12cbc4;
 $bg-reset: #ff6372;
 
+$bg-bar-green: hsl(140, 100%, 40%);
+$bg-bar-orange: hsl(37, 100%, 48%);
+$bg-bar-red: hsl(354, 100%, 69%);
+
 $border-answer: #8e959f;
 $border-radius: 4px;
 
@@ -156,7 +160,6 @@ body {
 
   & .bar {
     height: 50px;
-    background-color: $bg-bar;
     transition: all 0.3s linear;
   }
 
@@ -304,8 +307,20 @@ body {
 
   & .bar {
     height: 50px;
-    background-color: $bg-reset;
+    // background-color: $bg-reset;
     transition: all 0.3s linear;
+
+    &.red {
+      background-color: $bg-bar-red;
+    }
+
+    &.orange {
+      background-color: $bg-bar-orange;
+    }
+
+    &.green {
+      background-color: $bg-bar-green;
+    }
   }
 
   & .status {
