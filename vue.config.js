@@ -10,5 +10,13 @@ module.exports = {
         additionalData: `@import "@/assets/scss/app.scss";`
       },
     }
+  },
+  chainWebpack: config => {
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].title = "Quiz App";
+        return args;
+      })
   }
 }
