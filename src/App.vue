@@ -73,15 +73,15 @@
         <i class="fas fa-chevron-right"></i>
       </button>
     </div>
-    <div v-else class="result" >
-      <Result :results="results" :totalCorrect="totalCorrect" />
-      <button
-        type="button"
-        class="btn reset-btn"
-        @click.prevent="reset()"
-      >
-        Reset
-      </button>
+    <div v-else>
+      <Result 
+        :results="results" 
+        :questions="questions"
+        :selectedAnswers="selectedAnswers"
+        :totalCorrect="totalCorrect"
+        :questionsAnswered="questionsAnswered"
+        @reset="reset()"
+      />      
     </div>
   </div>
 </template>
@@ -166,6 +166,7 @@ export default {
       this.isWelcomeOut = false;
       this.testFinished = null;
       this.isTestSubmitted = false;
+      this.currentQuestion = 0;
     },
     async fetchNewQuestions() { 
       const req = await fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=easy');
@@ -175,7 +176,7 @@ export default {
         emptySelectedAnswers = Object.assign({ 
           [`a${index}`]: {
           text: '',
-          is_correct: false,
+          is_correct: null,
         } 
         }, emptySelectedAnswers);
         const fixedAnswers = (arr = [], is_correct = false) => {
