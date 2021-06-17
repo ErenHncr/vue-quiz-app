@@ -1,29 +1,50 @@
 <template>
-    <transition-group name="fade">
-     <div 
+  <transition-group name="fade" :css="isCssActive">
+    <div 
       class="single-question" 
       v-for="(question, qIndex) in questions" 
       :key="question.q"
       v-show="qIndex === currentQuestion"
     >     
-      <div class="question" v-html="questionWithNumber(qIndex, question.q)" />
+      <div :class="{ 
+        'question': true,
+        'result-question': isShowAnswersActive,
+        }" 
+        v-html="questionWithNumber(qIndex, question.q)" />
       <div class="answers">
         <div 
-          :class="{ answer: true, 'is-answered': isAnswered(qIndex, answer.text) }" 
+          :class="{ 
+            answer: true, 
+            'is-answered': isAnswered(qIndex, answer.text),
+            'bg-correct': isCorrect(answer.is_correct),
+            'bg-incorrect': isCorrect(!answer.is_correct),
+          }" 
           v-for="answer in question.answers"
           :key="answer.text"
           @click.prevent = "selectAnswer(answer.is_correct, answer.text, qIndex)"
           v-html="answer.text"
         />            
       </div>
-     </div>
-    </transition-group>
+    </div>
+  </transition-group>
 </template>
 
 <script>
 export default {
   name: 'Questions',
-  props: ['questions', 'currentQuestion', 'selectedAnswers'],
+  props: {
+    isCssActive: {
+      type: Boolean,
+      default: true,
+    },
+    isShowAnswersActive: {
+      type: Boolean,
+      default: false,
+    },
+    questions: Object,
+    currentQuestion: Number,
+    selectedAnswers: Object,
+  },
   emits: ['question-answered'],
   methods: {
     selectAnswer(is_correct, text, index) {
@@ -31,6 +52,9 @@ export default {
     },
     isAnswered(index, text) {
       return this.selectedAnswers[`a${index}`].text === text;
+    },
+    isCorrect(isCorrect){
+      return this.isShowAnswersActive && isCorrect;
     },
     questionWithNumber(questionNumber, question) {
       return `
