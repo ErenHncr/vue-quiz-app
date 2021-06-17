@@ -9,6 +9,9 @@ $bg-question: #fff;
 $bg-title: #12cbc4;
 $bg-reset: #ff6372;
 
+$bg-correct: hsl(140, 100%, 60%);
+$bg-incorrect: hsl(354, 100%, 75%);
+
 $bg-bar-green: hsl(140, 100%, 40%);
 $bg-bar-orange: hsl(37, 100%, 48%);
 $bg-bar-red: hsl(354, 100%, 69%);
@@ -17,3 +20,17 @@ $border-answer: #8e959f;
 $border-radius: 4px;
 
 $progress-color: #007eff;
+
+
+
+$question-number-red: hsl(354, 100%, 69%);
+$question-number-red-hover: hsl(354, 100%, 65%);
+$question-number-red-active: hsl(354, 100%, 60%);
+
+$question-number-green: hsl(140, 100%, 40%);
+$question-number-green-hover: hsl(140, 100%, 38%);
+$question-number-green-active: hsl(140, 100%, 36%);
+
+$question-number-neutral: hsl(0, 0%, 68%);
+$question-number-neutral-hover: hsl(0, 0%, 64%);
+$question-number-neutral-active: hsl(0, 0%, 60%);
