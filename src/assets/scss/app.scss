@@ -29,6 +29,10 @@ body {
   width: 100%;
 }
 
+.result-question {
+  border-radius: $border-radius !important;
+}
+
 .welcome {
   margin: 0 auto;
   margin-top: 50px;
@@ -256,7 +260,18 @@ body {
 }
 
 .reset-btn {
-  background-color: $bg-reset;
+  background-color: hsl(354, 100%, 64%);
+  margin: 20px 0px 0px auto;
+  max-width: 120px;
+  width: 100%;
+
+  &:hover {
+    background-color: hsl(354, 100%, 62%);
+  }
+
+  &:active {
+    background-color: hsl(354, 100%, 60%);
+  }
 }
 
 .prev-btn {
@@ -336,6 +351,14 @@ body {
 
 .hide {
   visibility: hidden;
+}
+
+.bg-correct {
+  background-color: $bg-correct;
+}
+
+.bg-incorrect {
+  background-color: $bg-incorrect;
 }
 
 @keyframes fadein {
