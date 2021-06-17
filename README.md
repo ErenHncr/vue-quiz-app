@@ -34,8 +34,8 @@ api endpoint for questions: https://opentdb.com/api.php?amount=10&category=9&dif
 - [ x ] Next before buttonları koyulacak.
 - [ x ] Soruların cevapları sonradan değiştirilebilecek.
 - [ x ] Timer
-- [  ] Süreye göre renklendirme
-- [  ] Submit butonu
-- [  ] Doğru/yanlış sonuç gösterme
-
-potential bg: #9a85e8
+- [ x ] Süreye göre renklendirme
+- [ x ] Submit butonu
+- [ x ] Doğru/yanlış sonuç gösterme
+- [ x ] Result ekranında kaç doğru kaç yanlış cevap yazdığı gösterilecek.
+- [   ] Renklerin hangi anlama geldiği yazılacak.
