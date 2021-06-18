@@ -1,5 +1,5 @@
 <template>
-  <transition-group name="fade" :css="isCssActive">
+  <transition-group name="fade" mode="out-in" :css="isCssActive" tag="div">
     <div 
       class="single-question" 
       v-for="(question, qIndex) in questions" 
