@@ -21,28 +21,14 @@
           </span>
         </div>
         <div class="color-scheme">
-          <div>
-            <span>
-              red
+          <div v-for="scheme in colorScheme" :key="scheme">
+            <span :class="{
+              color: true,
+              [scheme]: true,
+            }">              
             </span>
             <span>
-              incorrect
-            </span>
-          </div>
-          <div>
-            <span>
-              green
-            </span>
-            <span>
-              correct
-            </span>
-          </div>
-          <div>
-            <span>
-              neutral
-            </span>
-            <span>
-              unanswered
+              {{ scheme }}
             </span>
           </div>
         </div>
@@ -81,7 +67,8 @@ export default {
   emits: ['reset'],
   data () {
     return {
-      currentQuestion: 0,      
+      currentQuestion: 0,
+      colorScheme: ['correct', 'incorrect', 'unanswered'],
     }
   },
   components: {
@@ -107,6 +94,42 @@ export default {
 
 .result-questions {
   margin-top: 20px;
+}
+
+.color-scheme{
+  display: flex;  
+  margin-top: 15px;
+
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 16px;
+    font-weight: 500;
+
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  & .color {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+
+    &.correct {
+      background-color: $question-number-green;
+    }
+    &.incorrect {
+      background-color: $question-number-red;
+    }
+    &.unanswered {
+      background-color: $question-number-neutral;
+    }
+ 
+  }
 }
 
 .desc {
