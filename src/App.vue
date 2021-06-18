@@ -196,6 +196,10 @@ export default {
           } ]
         }
       });
+      const halfQuestions = parseInt(questions.length / 2, 10);
+      this.results[0].max = halfQuestions;
+      this.results[1].min = halfQuestions + 1;
+      this.results[1].max = questions.length;
       this.selectedAnswers = emptySelectedAnswers;
       this.questions = questions;
       this.loading = false;
