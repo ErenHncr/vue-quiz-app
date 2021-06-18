@@ -68,7 +68,7 @@ export default {
   data () {
     return {
       currentQuestion: 0,
-      colorScheme: ['correct', 'incorrect', 'unanswered'],
+      colorScheme: ['correct', 'incorrect', 'blank'],
     }
   },
   components: {
@@ -125,7 +125,7 @@ export default {
     &.incorrect {
       background-color: $question-number-red;
     }
-    &.unanswered {
+    &.blank {
       background-color: $question-number-neutral;
     }
  
