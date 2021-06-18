@@ -98,7 +98,7 @@ export default {
 
 .color-scheme{
   display: flex;  
-  margin-top: 15px;
+  margin-top: 18px;
 
   & > div {
     display: flex;
