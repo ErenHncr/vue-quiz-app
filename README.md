@@ -3,7 +3,7 @@
 
 This is an simple one page Vue Quiz Application. You can integrate it anywhere in your VueJS application. It has a simple time with loading animations.
 
-## <a  href="https://vuejs-quizapp.netlify.app">Live Demo</a>
+## <a href="https://vuejs-quizapp.netlify.app" target="blank">Live Demo</a>
 
 ## Features
 - [x]  Fetch question from an <a  href="https://opentdb.com/api.php?amount=10&category=9&difficulty=easy">API</a>
