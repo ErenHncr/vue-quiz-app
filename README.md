@@ -1,4 +1,4 @@
-# Quiz App
+# Vue Quiz App
 <p align="center">
 
 <img src="https://img.shields.io/badge/made%20by-erenhncr-blue.svg" >
