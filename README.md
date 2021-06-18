@@ -9,9 +9,9 @@
 
 <img src="https://img.shields.io/badge/node-v14.17.1-brightgreen">
 
-<img src="https://img.shields.io/badge/Vue-69.8%25-41b883">
+<img src="https://img.shields.io/badge/Vue-70.1%25-41b883">
 
-<img src="https://img.shields.io/badge/SCSS-25.2%25-c6538c">
+<img src="https://img.shields.io/badge/SCSS-25%25-c6538c">
 
 
 </p>
