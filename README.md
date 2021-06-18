@@ -37,7 +37,9 @@ This is an simple one page Vue Quiz Application. You can integrate it anywhere i
 
 ## Preview
 
-In final product, preview will be added.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/13501074/122551440-a7b26180-d03d-11eb-93ac-2727ed0e9070.gif" alt="animated" />
+</p>
 
 ## Project setup
 ```
