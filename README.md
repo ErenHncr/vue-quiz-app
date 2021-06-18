@@ -1,4 +1,21 @@
 # Quiz App
+<p align="center">
+
+<img src="https://img.shields.io/badge/made%20by-erenhncr-blue.svg" >
+
+<img src="https://img.shields.io/badge/vue-3.0.0-green.svg">
+
+<img src="https://img.shields.io/badge/npm-v6.14.13-brightgreen">
+
+<img src="https://img.shields.io/badge/node-v14.17.1-brightgreen">
+
+<img src="https://img.shields.io/badge/Vue-69.8%25-41b883">
+
+<img src="https://img.shields.io/badge/SCSS-25.2%25-c6538c">
+
+
+</p>
+
 > Made with **VueJS**
 
 This is an simple one page Vue Quiz Application. You can integrate it anywhere in your VueJS application. It has a simple time with loading animations.
